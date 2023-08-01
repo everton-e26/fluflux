@@ -1,22 +1,18 @@
-import 'package:fluflux/fluflux.dart';
-import 'package:test/test.dart';
+import 'package:flutter/widgets.dart' hide Action;
+import 'package:flutter_test/flutter_test.dart';
+import 'package:fluflux_hooks/fluflux_hooks.dart';
 
 void main() {
-  group('A group of tests', () {
-    final store = TestStore();
+  final store = TestStore();
 
-    test('First Test', () async {
-      store.listen((state) {
-        print('state listen $state');
-      });
-
-      print('increment 1');
-      store.dispatch(IncrementAction(1));
-
-      print('increment 3');
-      store.dispatch(IncrementAction(3));
-      expect(store.state.counter, 4);
-    });
+  testWidgets('simple build', (tester) async {
+    await tester.pumpWidget(
+      HookBuilder(builder: (context) {
+        final state = useStoreState(store);
+        return Text('${state.counter}', textDirection: TextDirection.ltr);
+      }),
+    );
+    expect(find.text('0'), findsOneWidget);
   });
 }
 

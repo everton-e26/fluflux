@@ -4,5 +4,4 @@
 library;
 
 export 'src/fluflux_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'dart:async';

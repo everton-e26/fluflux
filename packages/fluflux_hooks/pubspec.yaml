@@ -1,0 +1,24 @@
+name: fluflux_hooks
+description: A new Flutter package project.
+version: 0.0.1
+homepage:
+publish_to: none
+
+environment:
+  sdk: '>=3.0.6 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  fluflux:
+    path: ../fluflux
+  flutter_hooks: ^0.20.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
